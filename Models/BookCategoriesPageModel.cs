@@ -6,7 +6,7 @@ namespace Anamaria_Borbola_Lab2.Models
     {
         public List<AssignedCategoryData> AssignedCategoryDataList;
         public void PopulateAssignedCategoryData(Anamaria_Borbola_Lab2Context context,
-        Book book)
+        Book book) 
         {
              
             var allCategories = context.Category;
