@@ -8,6 +8,7 @@ namespace Anamaria_Borbola_Lab2.Models
         public void PopulateAssignedCategoryData(Anamaria_Borbola_Lab2Context context,
         Book book)
         {
+
             var allCategories = context.Category;
             var bookCategories = new HashSet<int>(
             book.BookCategories.Select(c => c.CategoryID)); //
