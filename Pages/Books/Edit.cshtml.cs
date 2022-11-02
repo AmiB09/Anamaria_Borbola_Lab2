@@ -48,8 +48,7 @@ namespace Anamaria_Borbola_Lab2.Pages.Books
             });
 
             ViewData["AuthorID"] = new SelectList(authorList, "ID", "FullName");
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID",
-"PublisherName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID","PublisherName");
             return Page();
         }
 
@@ -63,7 +62,7 @@ selectedCategories)
                 return NotFound();
             }
             var bookToUpdate = await _context.Book
-            .Include(_b => _b.Author)
+            .Include(i => i.Author)
             .Include(i => i.Publisher)
             .Include(i => i.BookCategories)
             .ThenInclude(i => i.Category)
@@ -75,8 +74,8 @@ selectedCategories)
             if (await TryUpdateModelAsync<Book>(
             bookToUpdate,
             "Book",
-            i => i.Title, i => i.Author,
-            i => i.Price, i => i.PublishingDate, i => i.Publisher))
+            i => i.Title, i => i.AuthorID,
+            i => i.Price, i => i.PublishingDate, i => i.PublisherID))
             {
                 UpdateBookCategories(_context, selectedCategories, bookToUpdate);
                 await _context.SaveChangesAsync();
