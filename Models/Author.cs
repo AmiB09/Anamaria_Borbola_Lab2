@@ -11,7 +11,9 @@ namespace Anamaria_Borbola_Lab2.Models
 
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        public string AuthorName
+
+        [Display(Name = "Full Name")]
+        public string FullName
         {
             get
             {
