@@ -56,6 +56,7 @@ namespace Anamaria_Borbola_Lab2.Pages.Borrowings
             if (borrowing != null)
             {
                 Borrowing = borrowing;
+
                 _context.Borrowing.Remove(Borrowing);
                 await _context.SaveChangesAsync();
             }
