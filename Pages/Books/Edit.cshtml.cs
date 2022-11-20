@@ -8,9 +8,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Anamaria_Borbola_Lab2.Data;
 using Anamaria_Borbola_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace Anamaria_Borbola_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Anamaria_Borbola_Lab2.Data.Anamaria_Borbola_Lab2Context _context;
